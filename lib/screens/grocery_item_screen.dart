@@ -150,7 +150,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
           controller: _nameController,
           cursorColor: _currentColor,
           decoration: InputDecoration(
-            hintText: 'E.g. Apples, Banana, 1 Bag of salt',
+            hintText: 'E.g. Garri, Bread, Beans',
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
