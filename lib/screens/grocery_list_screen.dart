@@ -28,7 +28,7 @@ class GroceryListScreen extends StatelessWidget {
             ),
             onDismissed: (direction) {
               manager.deleteItem(index);
-              Scaffold.of(context).showSnackBar(SnackBar(content: Text('${item.name} dismissed')));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${item.name} dismissed')));
             },
             child: InkWell(
               onTap: () {
