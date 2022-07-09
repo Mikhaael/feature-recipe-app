@@ -9,23 +9,13 @@ class GroceryScreen extends StatelessWidget {
   const GroceryScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           final manager = Provider.of<GroceryManager>(context, listen: false);
-
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => GroceryItemScreen(
-                        onCreate: (item) {
-                          manager.addItem(item);
-                          Navigator.pop(context);
-                        },
-                        onUpdate: (_) {},
-                      )));
+          manager.createNewItem();
         },
       ),
       body: buildGroceryScreen(),

@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich_app/main.dart';
+import 'package:fooderlich_app/models/app_state_manager.dart';
+import 'package:fooderlich_app/models/fooderlich_pages.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
-  // TODO: LoginScreen MaterialPage Helper
+  static MaterialPage page() {
+    return MaterialPage(
+      name: FooderlichPages.loginPath,
+      key: ValueKey(FooderlichPages.loginPath),
+      child: const LoginScreen(),
+    );
+  }
 
   final String? username;
   const LoginScreen({Key? key, this.username}) : super(key: key);
@@ -52,7 +62,8 @@ class LoginScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () async {
-          // TODO: Login -> Navigate to home
+          Provider.of<AppStateManager>(context, listen: false)
+              .login('mockUsername', 'mockPassword');
         },
       ),
     );

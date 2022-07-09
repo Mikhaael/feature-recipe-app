@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich_app/main.dart';
+import 'package:fooderlich_app/models/app_state_manager.dart';
+import 'package:fooderlich_app/models/fooderlich_pages.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
-  // TODO: SplashScreen MaterialPage Helper
+  static MaterialPage page() {
+    return MaterialPage(
+      name: FooderlichPages.splashPath,
+      key: ValueKey(FooderlichPages.splashPath),
+      child: const SplashScreen(),
+    );
+  }
 
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -12,7 +22,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // TODO: Initialize App
+    Provider.of<AppStateManager>(context, listen: false).initializeApp();
   }
 
   @override
